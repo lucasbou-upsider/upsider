@@ -8,7 +8,7 @@ var levier_2 = false
 var levier_3 = false
 var levier_4 = false
 
-var levier_actif = 4
+var levier_actif = 0
 
 var marteau = false
 var debloquage_marteau_animation = false
