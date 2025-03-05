@@ -1,9 +1,8 @@
-[gd_scene load_steps=24 format=4 uid="uid://coapcxweldcjr"]
+[gd_scene load_steps=18 format=4 uid="uid://coapcxweldcjr"]
 
 [ext_resource type="Texture2D" uid="uid://caw430pts8h8p" path="res://sprite/Paper-Pixels-8x8/Tiles.png" id="1_d7ehs"]
 [ext_resource type="Script" uid="uid://d3qlmdcx1lc2j" path="res://script/menu/succes_menu.gd" id="1_j7yd2"]
-[ext_resource type="Texture2D" uid="uid://cdqkhh6u7o3yf" path="res://sprite/upside/upside_non_actif.png" id="2_oj5xi"]
-[ext_resource type="Texture2D" uid="uid://bykvmne85jeid" path="res://sprite/upside/upside_de_feu.png" id="3_cn04q"]
+[ext_resource type="PackedScene" uid="uid://qdnj4dtpxum2" path="res://scene/upside/upside.tscn" id="3_hgbpn"]
 [ext_resource type="FontFile" uid="uid://c6drrdopvgm8h" path="res://BabaMediumPixels.ttf" id="4_e73tq"]
 [ext_resource type="Texture2D" uid="uid://bkmfuh5kg4cf5" path="res://sprite/succes/WhatsApp Image 2025-02-23 at 13.28.35 (1).png" id="6_vsg2m"]
 [ext_resource type="Texture2D" uid="uid://evcarv2wgaq8" path="res://sprite/succes/WhatsApp Image 2025-02-23 at 13.28.35.png" id="7_tme1g"]
@@ -3031,74 +3030,17 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_eb7g8")
 sources/1 = SubResource("TileSetAtlasSource_7pfy5")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1dmnh"]
-atlas = ExtResource("2_oj5xi")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_li05v"]
+bg_color = Color(0.721569, 0.721569, 0.721569, 0.431373)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g77my"]
-atlas = ExtResource("2_oj5xi")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y0lq2"]
+bg_color = Color(0.721569, 0.721569, 0.721569, 0.431373)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ick5q"]
-atlas = ExtResource("2_oj5xi")
-region = Rect2(32, 32, 32, 32)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ykyfp"]
+bg_color = Color(0.721569, 0.721569, 0.721569, 0.431373)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sjbcy"]
-atlas = ExtResource("2_oj5xi")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oae50"]
-atlas = ExtResource("3_cn04q")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tip2u"]
-atlas = ExtResource("3_cn04q")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1t8f5"]
-atlas = ExtResource("3_cn04q")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lu6g7"]
-atlas = ExtResource("3_cn04q")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_cbsuq"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1dmnh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g77my")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ick5q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sjbcy")
-}],
-"loop": true,
-"name": &"default",
-"speed": 2.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oae50")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tip2u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1t8f5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lu6g7")
-}],
-"loop": true,
-"name": &"feu",
-"speed": 5.0
-}]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8awrr"]
+bg_color = Color(0.721569, 0.721569, 0.721569, 0.431373)
 
 [node name="Succes_menu" type="Control"]
 layout_mode = 3
@@ -3133,11 +3075,9 @@ tile_map_data = PackedByteArray("AAD+/w4AAQAAABMAAAD//w4AAQABABMAAAAAAA4AAQACABM
 tile_set = SubResource("TileSet_8sbek")
 metadata/_edit_lock_ = true
 
-[node name="upisde" type="AnimatedSprite2D" parent="décor"]
-position = Vector2(1121.25, 232.5)
-scale = Vector2(3.14063, 2.96875)
-sprite_frames = SubResource("SpriteFrames_cbsuq")
-autoplay = "default"
+[node name="upside" parent="décor" instance=ExtResource("3_hgbpn")]
+position = Vector2(1103, 233)
+type_upside = "menu"
 
 [node name="succes" type="Control" parent="."]
 anchors_preset = 0
@@ -3150,6 +3090,7 @@ offset_left = 524.0
 offset_top = 7.0
 offset_right = 662.0
 offset_bottom = 70.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_e73tq")
 theme_override_font_sizes/font_size = 50
 text = "succes"
@@ -3176,13 +3117,15 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.0
-theme_override_constants/separation = 7
+theme_override_constants/separation = 11
 vertical = true
 
 [node name="succes 1" type="Label" parent="succes/ScrollContainer/BoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_e73tq")
 theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_li05v")
 text = "la main verte: finir le monde 1"
 horizontal_alignment = 1
 
@@ -3198,17 +3141,12 @@ offset_right = 20.0
 offset_bottom = 20.0
 color = Color(0.207843, 0.207843, 0.207843, 0.784314)
 
-[node name="ColorRect" type="ColorRect" parent="succes/ScrollContainer/BoxContainer/succes 1"]
-clip_contents = true
-layout_mode = 2
-offset_right = 627.0
-offset_bottom = 44.0
-color = Color(1, 1, 1, 0.34902)
-
 [node name="succes 2" type="Label" parent="succes/ScrollContainer/BoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_e73tq")
 theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_y0lq2")
 text = "verocide: tué un vero"
 horizontal_alignment = 1
 
@@ -3224,37 +3162,33 @@ offset_right = 20.0
 offset_bottom = 20.0
 color = Color(0.207843, 0.207843, 0.207843, 0.784314)
 
-[node name="ColorRect" type="ColorRect" parent="succes/ScrollContainer/BoxContainer/succes 2"]
-layout_mode = 2
-offset_right = 627.0
-offset_bottom = 44.0
-color = Color(1, 1, 1, 0.34902)
-
 [node name="succes 3" type="Label" parent="succes/ScrollContainer/BoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_e73tq")
 theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_ykyfp")
 text = "finir le niv bonus"
 horizontal_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="succes/ScrollContainer/BoxContainer/succes 3"]
-layout_mode = 2
-offset_right = 627.0
-offset_bottom = 44.0
-color = Color(1, 1, 1, 0.34902)
-
 [node name="succes 4" type="Label" parent="succes/ScrollContainer/BoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_e73tq")
 theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_8awrr")
 text = "le début de la fin: atteindre 20 mort"
 horizontal_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="succes/ScrollContainer/BoxContainer/succes 4"]
+[node name="succes 5" type="Label" parent="succes/ScrollContainer/BoxContainer"]
 layout_mode = 2
-offset_right = 627.0
-offset_bottom = 44.0
-color = Color(1, 1, 1, 0.34902)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_e73tq")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_8awrr")
+text = "mais c quoi c truc ?: débloquer son
+première upside"
+horizontal_alignment = 1
 
 [node name="BoxContainer" type="BoxContainer" parent="."]
 layout_mode = 0

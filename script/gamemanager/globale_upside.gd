@@ -8,10 +8,12 @@ var levier_2 = false
 var levier_3 = false
 var levier_4 = false
 
-var levier_actif = 0
+var levier_actif = 4
 
 var marteau = false
 var debloquage_marteau_animation = false
+
+var upside_debloque: Array = []
 
 func _ready() -> void:
 	pass

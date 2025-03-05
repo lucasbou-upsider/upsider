@@ -1,9 +1,8 @@
-[gd_scene load_steps=79 format=4 uid="uid://xtbwi03r2nj0"]
+[gd_scene load_steps=69 format=4 uid="uid://xtbwi03r2nj0"]
 
 [ext_resource type="Script" uid="uid://ckyd3pml2unld" path="res://script/menu/menu.gd" id="1_spie2"]
 [ext_resource type="Texture2D" uid="uid://caw430pts8h8p" path="res://sprite/Paper-Pixels-8x8/Tiles.png" id="2_mbnkx"]
-[ext_resource type="Texture2D" uid="uid://cdqkhh6u7o3yf" path="res://sprite/upside/upside_non_actif.png" id="3_ng2tg"]
-[ext_resource type="Texture2D" uid="uid://bykvmne85jeid" path="res://sprite/upside/upside_de_feu.png" id="4_f2bl6"]
+[ext_resource type="PackedScene" uid="uid://qdnj4dtpxum2" path="res://scene/upside/upside.tscn" id="3_r1cnn"]
 [ext_resource type="FontFile" uid="uid://c6drrdopvgm8h" path="res://BabaMediumPixels.ttf" id="4_xwok8"]
 [ext_resource type="Texture2D" uid="uid://reu5pqm2tqhj" path="res://sprite/Paper-Pixels-8x8/etoile.png" id="5_l11v4"]
 [ext_resource type="Script" uid="uid://bppaapt00u4i" path="res://script/button.gd" id="6_c27m6"]
@@ -3035,75 +3034,6 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_eb7g8")
 sources/1 = SubResource("TileSetAtlasSource_7pfy5")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1dmnh"]
-atlas = ExtResource("3_ng2tg")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g77my"]
-atlas = ExtResource("3_ng2tg")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ick5q"]
-atlas = ExtResource("3_ng2tg")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sjbcy"]
-atlas = ExtResource("3_ng2tg")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oae50"]
-atlas = ExtResource("4_f2bl6")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tip2u"]
-atlas = ExtResource("4_f2bl6")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1t8f5"]
-atlas = ExtResource("4_f2bl6")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lu6g7"]
-atlas = ExtResource("4_f2bl6")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_cbsuq"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1dmnh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g77my")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ick5q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sjbcy")
-}],
-"loop": true,
-"name": &"default",
-"speed": 2.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oae50")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tip2u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1t8f5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lu6g7")
-}],
-"loop": true,
-"name": &"feu",
-"speed": 5.0
-}]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_2abf0"]
 atlas = ExtResource("5_l11v4")
 region = Rect2(192, 0, 32, 32)
@@ -3519,11 +3449,9 @@ tile_map_data = PackedByteArray("AAD+/w4AAQAAABMAAAD//w4AAQABABMAAAAAAA4AAQACABM
 tile_set = SubResource("TileSet_8sbek")
 metadata/_edit_lock_ = true
 
-[node name="upisde" type="AnimatedSprite2D" parent="décor"]
-position = Vector2(1121.25, 232.5)
-scale = Vector2(3.14063, 2.96875)
-sprite_frames = SubResource("SpriteFrames_cbsuq")
-autoplay = "default"
+[node name="upside" parent="décor" instance=ExtResource("3_r1cnn")]
+position = Vector2(1103, 233)
+type_upside = "menu"
 
 [node name="menu_1" type="Control" parent="."]
 anchors_preset = 0

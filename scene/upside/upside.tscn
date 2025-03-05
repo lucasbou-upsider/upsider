@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://qdnj4dtpxum2"]
+[gd_scene load_steps=19 format=3 uid="uid://qdnj4dtpxum2"]
 
 [ext_resource type="Script" uid="uid://dnvsshrqslhua" path="res://script/objet/upside.gd" id="1_6gflf"]
 [ext_resource type="Texture2D" uid="uid://cdqkhh6u7o3yf" path="res://sprite/upside/upside_non_actif.png" id="1_efy3b"]
@@ -95,6 +95,10 @@ _data = {
 &"bouge": SubResource("Animation_lc30o")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yaot7"]
+radius = 20.0
+height = 74.0
+
 [node name="upside" type="Node2D"]
 script = ExtResource("1_6gflf")
 
@@ -102,6 +106,7 @@ script = ExtResource("1_6gflf")
 position = Vector2(0, 4.54747e-13)
 scale = Vector2(3.14063, 2.96875)
 sprite_frames = SubResource("SpriteFrames_wv7fq")
+animation = &"eau"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(0, 7)
@@ -113,3 +118,11 @@ texture_scale = 0.5
 libraries = {
 &"": SubResource("AnimationLibrary_uwudc")
 }
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_yaot7")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
