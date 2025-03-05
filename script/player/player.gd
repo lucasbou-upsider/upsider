@@ -129,9 +129,10 @@ func mort():
 	son_mort.stop()
 
 var zoom_effectué = false
+var gros_zoom = false
 func capacite():
 	if GameManager.skin_player == 3:
-		if Input.is_action_just_pressed("capacité"):
+		if Input.is_action_just_pressed("capacité") and gros_zoom == false:
 			if zoom == false:
 				animation_player.play("zoom_camera")
 				zoom = true
@@ -139,11 +140,15 @@ func capacite():
 				animation_player.play("dezoom_camera")
 				zoom = false
 		if Input.is_action_just_pressed("lumiere") and zoom == true and zoom_effectué == false:
+			gros_zoom = true
 			animated_sprite_2d.play("capacite_sylvan")
 			animation_player.play("capacite_sylvan")
 			zoom_effectué = true
 			zoom = false
+			await get_tree().create_timer(2).timeout
+			gros_zoom = false
 		if Input.is_action_just_pressed("poser_piece") and GameManager.dans_area_reprendre_tp:
+			gros_zoom = true
 			zoom_effectué = false
 			GameManager.paused = true
 			animated_sprite_2d.offset.y = -1
@@ -154,6 +159,7 @@ func capacite():
 			await get_tree().create_timer(2).timeout
 			GameManager.paused = false
 			animated_sprite_2d.offset.y = 0
+			gros_zoom = false
 
 #animation succes
 func succes():

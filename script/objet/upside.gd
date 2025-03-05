@@ -20,7 +20,7 @@ func _ready() -> void:
 
 
 
-func _on_area_2d_area_entered(area: Area2D) -> void:
+func _on_area_2d_area_entered(_area: Area2D) -> void:
 	GlobaleUpside.upside_debloque.append(type_upside)
 	queue_free()
 	#créé une cinématique 

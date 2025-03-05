@@ -3691,6 +3691,17 @@ position = Vector2(71, 9)
 scale = Vector2(3.75, 3.4375)
 sprite_frames = SubResource("SpriteFrames_86fwu")
 
+[node name="niv9" type="Button" parent="menu_1/monde 2/BoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_xwok8")
+text = "niv 9"
+
+[node name="étoile_9" type="AnimatedSprite2D" parent="menu_1/monde 2/BoxContainer/niv9"]
+visible = false
+position = Vector2(71, 9)
+scale = Vector2(3.75, 3.4375)
+sprite_frames = SubResource("SpriteFrames_86fwu")
+
 [node name="compteur_de_mort" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -3820,6 +3831,7 @@ stream = ExtResource("11_3s2x0")
 [connection signal="pressed" from="menu_1/monde 1/BoxContainer/niv7" to="." method="_on_niv_7_pressed"]
 [connection signal="pressed" from="menu_1/monde 1/BoxContainer2/niv_bonus_1" to="." method="_on_niv_bonus_1_pressed"]
 [connection signal="pressed" from="menu_1/monde 2/BoxContainer/niv8" to="." method="_on_niv_8_pressed"]
+[connection signal="pressed" from="menu_1/monde 2/BoxContainer/niv9" to="." method="_on_niv_9_pressed"]
 [connection signal="pressed" from="skin_player/BoxContainer/Button" to="skin_player/skin" method="_on_button_pressed"]
 [connection signal="pressed" from="skin_player/BoxContainer/Button2" to="skin_player/skin" method="_on_button_2_pressed"]
 [connection signal="area_entered" from="skin_player/arret_annimation" to="skin_player/skin" method="_on_arret_annimation_area_entered"]

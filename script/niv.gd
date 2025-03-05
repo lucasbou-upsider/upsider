@@ -48,14 +48,17 @@ func _process(_delta: float) -> void:
 				inst_platforme(get_global_mouse_position())
 				GameManager.platforme -= 1
 	#se tp au point de tp
+	var gros_zoom = false
 	if GameManager.mode_capacite == true:
 		if Input.is_action_just_pressed("lumiere") and GameManager.paused == false and GameManager.tp_pose == 0:
+			gros_zoom = true
 			GameManager.paused = true
 			await get_tree().create_timer(2).timeout
 			GameManager.tp_pose = 1
 			inst_tp(player.position)
-			GameManager.mode_capacite = false
 			GameManager.paused = false
+			gros_zoom = false
+			GameManager.mode_capacite = false
 		if Input.is_action_just_pressed("lumiere") and GameManager.paused == false and GameManager.tp_pose == 1:
 			if tp_utilise == false:
 				tp_utilise = true
@@ -65,7 +68,7 @@ func _process(_delta: float) -> void:
 	
 	#capacité
 	if GameManager.skin_player == 3:
-		if Input.is_action_just_pressed("capacité"):
+		if Input.is_action_just_pressed("capacité") and gros_zoom == false:
 			if GameManager.mode_capacite == true:
 				GameManager.mode_capacite = false
 			elif GameManager.mode_capacite == false:
@@ -88,7 +91,7 @@ func _process(_delta: float) -> void:
 func music():
 	if niv <= 7:
 		MusicController.play_music("biome_1")
-	if niv ==  8:
+	if niv >=  8:
 		MusicController.play_music("biome_2")
 
 

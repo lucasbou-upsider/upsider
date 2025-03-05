@@ -3080,6 +3080,12 @@ script = ExtResource("1_cpxp0")
 niv = 8.0
 piece_requis = 1
 
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(-0.00012207, -1.52588e-05)
+scale = Vector2(1, 1)
+color = Color(0.902855, 0.902855, 7.70092e-07, 1)
+energy = 0.2
+
 [node name="background" type="TileMapLayer" parent="."]
 position = Vector2(-1771, -246)
 scale = Vector2(5, 5)

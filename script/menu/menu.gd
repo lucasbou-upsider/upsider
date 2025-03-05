@@ -20,6 +20,7 @@ extends Control
 @onready var niv_6: Button = $"menu_1/monde 1/BoxContainer/niv6"
 @onready var niv_7: Button = $"menu_1/monde 1/BoxContainer/niv7"
 @onready var niv_8: Button = $"menu_1/monde 2/BoxContainer/niv8"
+@onready var niv_9: Button = $"menu_1/monde 2/BoxContainer/niv9"
 
 
 #etoile
@@ -32,6 +33,7 @@ extends Control
 @onready var etoile_6: AnimatedSprite2D = $"menu_1/monde 1/BoxContainer/niv6/étoile_6"
 @onready var etoile_7: AnimatedSprite2D = $"menu_1/monde 1/BoxContainer/niv7/étoile_7"
 @onready var etoile_8: AnimatedSprite2D = $"menu_1/monde 2/BoxContainer/niv8/étoile_8"
+@onready var etoile_9: AnimatedSprite2D = $"menu_1/monde 2/BoxContainer/niv9/étoile_9"
 
 
 
@@ -41,7 +43,7 @@ func _ready() -> void:
 
 	#mode admin
 	if mode_admin == true:
-		var mode_admine_niv_debloque: Array = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 1.1]
+		var mode_admine_niv_debloque: Array = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 1.1]
 		GameManager.niv_fini.append_array(mode_admine_niv_debloque)
 
 	#etoile de fin de niv
@@ -95,6 +97,12 @@ func _ready() -> void:
 	if GameManager.niv_fini.has(8.0) == true:
 		etoile_8.visible = true
 		etoile_8.play("recus")
+	else :
+		niv_9.visible = false
+		
+	if GameManager.niv_fini.has(9.0) == true:
+		etoile_9.visible = true
+		etoile_9.play("recus")
 	
 
 	if GameManager.niv_fini.has(1.1) == true:
@@ -148,6 +156,9 @@ func _on_niv_7_pressed() -> void:
 func _on_niv_8_pressed() -> void:
 	bouton()
 	get_tree().change_scene_to_file("res://scene/niveau/monde_2/niv_8.tscn")
+func _on_niv_9_pressed() -> void:
+	bouton()
+	get_tree().change_scene_to_file("res://scene/niveau/monde_2/niv_9.tscn")
 
 func _on_niv_bonus_1_pressed() -> void:
 	bouton()
@@ -164,7 +175,7 @@ func bouton():
 	MusicController.stop_music()
 
 
-func _on_check_button_toggled(toggled_on: bool) -> void:
+func _on_check_button_toggled(_toggled_on: bool) -> void:
 	if GameManager.mode_speedrun == false:
 		GameManager.mode_speedrun = true
 	elif GameManager.mode_speedrun == true:
