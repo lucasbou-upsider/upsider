@@ -8,5 +8,6 @@ func _ready() -> void:
 		upisde.play("feu")
 	if type_upside == "eau" and GlobaleUpside.levier_actif == 4:
 		upisde.play("eau")
+		print("hello")
 	else:
 		upisde.play("default")
