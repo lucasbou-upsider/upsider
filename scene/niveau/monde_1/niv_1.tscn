@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bk6d4eojfj81a" path="res://scene/objets/piece.tscn" id="10_eb04d"]
 [ext_resource type="Texture2D" uid="uid://cm1s1gxq7wdeg" path="res://sprite/Paper-Pixels-8x8/UI.png" id="11_7xulr"]
 [ext_resource type="Texture2D" uid="uid://bxqwxsryem6me" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="12_m3xyl"]
-[ext_resource type="PackedScene" uid="uid://qdnj4dtpxum2" path="res://scene/objets/upside.tscn" id="13_16l46"]
+[ext_resource type="PackedScene" uid="uid://qdnj4dtpxum2" path="res://scene/upside/upside.tscn" id="13_16l46"]
 [ext_resource type="PackedScene" uid="uid://chgqeva33t1cy" path="res://scene/pieges/lance_lumière.tscn" id="13_shsn3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uqa1f"]
