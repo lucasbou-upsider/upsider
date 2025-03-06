@@ -38,8 +38,7 @@ extends Control
 
 
 func _ready() -> void:
-	MusicController.play_music("menu")
-	print(GameManager.niv_fini)
+	MusicController.play_music("menu")#lance la musique
 
 	#mode admin
 	if mode_admin == true:
@@ -50,6 +49,7 @@ func _ready() -> void:
 	if GameManager.niv_fini.has(1.0) == true:
 		etoile_1.visible = true
 		etoile_1.play("recus")
+		speedrun_button.disabled = true
 	else:
 		niv_2.visible = false
 
@@ -88,6 +88,8 @@ func _ready() -> void:
 		etoile_7.play("recus")
 		if GameManager.mode_speedrun == true:
 			temps_speedrun_monde_1.text = str(GameManager.temps_monde_1)
+			if int(GameManager.temps_monde_1) >= 7.5:
+				GameManager.skin_debloquer.append(4)
 		else:
 			temps_speedrun_monde_1.visible = false
 	else :
@@ -124,8 +126,7 @@ func _ready() -> void:
 		levier_actif.visible = true
 		levier_actif.text = "nombre de levier actif : " + str(GlobaleUpside.levier_actif)
 
-	if mode_admin == true:
-		GameManager.skin_nerd_debloque = true
+
 
 func _process(_delta: float) -> void:
 	pass

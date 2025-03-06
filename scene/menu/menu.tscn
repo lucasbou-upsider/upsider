@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=4 uid="uid://xtbwi03r2nj0"]
+[gd_scene load_steps=83 format=4 uid="uid://xtbwi03r2nj0"]
 
 [ext_resource type="Script" uid="uid://ckyd3pml2unld" path="res://script/menu/menu.gd" id="1_spie2"]
 [ext_resource type="Texture2D" uid="uid://caw430pts8h8p" path="res://sprite/Paper-Pixels-8x8/Tiles.png" id="2_mbnkx"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bppaapt00u4i" path="res://script/button.gd" id="6_c27m6"]
 [ext_resource type="Texture2D" uid="uid://dvjfysf6d4eq0" path="res://sprite/player/Player_base.png" id="6_t331b"]
 [ext_resource type="Texture2D" uid="uid://dubo3is7cwgrx" path="res://sprite/player/player nerd.png" id="7_o1l6f"]
+[ext_resource type="Texture2D" uid="uid://cook8lejs67ic" path="res://sprite/player/Player_meven.png" id="7_wvotf"]
 [ext_resource type="Script" uid="uid://bljpw74iqvgll" path="res://script/skin.gd" id="8_hauyy"]
 [ext_resource type="Texture2D" uid="uid://pk3lrjxi0eug" path="res://sprite/player/Player_sylvan.png" id="10_o8p4e"]
 [ext_resource type="AudioStream" uid="uid://b4e8jpehvai7r" path="res://son/bouton_selection_out.wav" id="11_3s2x0"]
@@ -3139,6 +3140,42 @@ region = Rect2(16, 8, 8, 8)
 atlas = ExtResource("6_t331b")
 region = Rect2(24, 8, 8, 8)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_smxkl"]
+atlas = ExtResource("7_wvotf")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xd61h"]
+atlas = ExtResource("7_wvotf")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xa8s0"]
+atlas = ExtResource("7_wvotf")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gt5x4"]
+atlas = ExtResource("7_wvotf")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lths"]
+atlas = ExtResource("7_wvotf")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkb3d"]
+atlas = ExtResource("7_wvotf")
+region = Rect2(8, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ap7tq"]
+atlas = ExtResource("7_wvotf")
+region = Rect2(16, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3x14g"]
+atlas = ExtResource("7_wvotf")
+region = Rect2(24, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6o3jc"]
+atlas = ExtResource("7_wvotf")
+region = Rect2(0, 16, 8, 8)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_6q3o6"]
 atlas = ExtResource("7_o1l6f")
 region = Rect2(0, 0, 8, 8)
@@ -3227,6 +3264,22 @@ region = Rect2(16, 24, 8, 8)
 atlas = ExtResource("6_t331b")
 region = Rect2(24, 24, 8, 8)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_aou5u"]
+atlas = ExtResource("7_wvotf")
+region = Rect2(24, 16, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30fik"]
+atlas = ExtResource("7_wvotf")
+region = Rect2(0, 24, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvbim"]
+atlas = ExtResource("7_wvotf")
+region = Rect2(8, 24, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsdqx"]
+atlas = ExtResource("7_wvotf")
+region = Rect2(16, 24, 8, 8)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_wijtq"]
 atlas = ExtResource("7_o1l6f")
 region = Rect2(0, 24, 8, 8)
@@ -3291,6 +3344,38 @@ animations = [{
 }],
 "loop": true,
 "name": &"marche_base",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smxkl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xd61h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xa8s0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gt5x4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lths")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkb3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ap7tq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3x14g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6o3jc")
+}],
+"loop": true,
+"name": &"marche_meven",
 "speed": 15.0
 }, {
 "frames": [{
@@ -3376,6 +3461,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_aou5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30fik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvbim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsdqx")
+}],
+"loop": true,
+"name": &"player_meven",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_wijtq")
 }, {
 "duration": 1.0,
@@ -3423,7 +3525,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_spie2")
-mode_admin = true
 
 [node name="décor" type="Control" parent="."]
 anchors_preset = 0
@@ -3452,6 +3553,25 @@ metadata/_edit_lock_ = true
 [node name="upside" parent="décor" instance=ExtResource("3_r1cnn")]
 position = Vector2(1103, 233)
 type_upside = "menu"
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 518.0
+offset_right = 282.0
+offset_bottom = 558.0
+theme_override_constants/separation = 40
+script = ExtResource("6_c27m6")
+
+[node name="Button" type="Button" parent="BoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_xwok8")
+text = "<"
+
+[node name="Button2" type="Button" parent="BoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_xwok8")
+text = ">"
 
 [node name="menu_1" type="Control" parent="."]
 anchors_preset = 0
@@ -3739,30 +3859,11 @@ offset_top = 511.0
 offset_right = 605.0
 offset_bottom = 551.0
 
-[node name="BoxContainer" type="BoxContainer" parent="skin_player"]
-layout_mode = 0
-offset_left = -365.0
-offset_top = 7.0
-offset_right = -283.0
-offset_bottom = 47.0
-theme_override_constants/separation = 40
-script = ExtResource("6_c27m6")
-
-[node name="Button" type="Button" parent="skin_player/BoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_xwok8")
-text = "<"
-
-[node name="Button2" type="Button" parent="skin_player/BoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_xwok8")
-text = ">"
-
 [node name="skin" type="AnimatedSprite2D" parent="skin_player"]
 position = Vector2(-561, 33)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_ih0uu")
-animation = &"marche_sylvan"
+animation = &"player_meven"
 script = ExtResource("8_hauyy")
 
 [node name="Area2D" type="Area2D" parent="skin_player/skin"]
@@ -3819,6 +3920,8 @@ text = "mode speedrun"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_3s2x0")
 
+[connection signal="pressed" from="BoxContainer/Button" to="skin_player/skin" method="_on_button_pressed"]
+[connection signal="pressed" from="BoxContainer/Button2" to="skin_player/skin" method="_on_button_2_pressed"]
 [connection signal="pressed" from="menu_1/option/BoxContainer/quit2" to="." method="_on_quit_2_pressed"]
 [connection signal="button_down" from="menu_1/option/BoxContainer2/quit" to="." method="_on_quit_button_down"]
 [connection signal="pressed" from="menu_1/option/BoxContainer3/Button_succes" to="." method="_on_button_succes_pressed"]
@@ -3832,7 +3935,5 @@ stream = ExtResource("11_3s2x0")
 [connection signal="pressed" from="menu_1/monde 1/BoxContainer2/niv_bonus_1" to="." method="_on_niv_bonus_1_pressed"]
 [connection signal="pressed" from="menu_1/monde 2/BoxContainer/niv8" to="." method="_on_niv_8_pressed"]
 [connection signal="pressed" from="menu_1/monde 2/BoxContainer/niv9" to="." method="_on_niv_9_pressed"]
-[connection signal="pressed" from="skin_player/BoxContainer/Button" to="skin_player/skin" method="_on_button_pressed"]
-[connection signal="pressed" from="skin_player/BoxContainer/Button2" to="skin_player/skin" method="_on_button_2_pressed"]
 [connection signal="area_entered" from="skin_player/arret_annimation" to="skin_player/skin" method="_on_arret_annimation_area_entered"]
 [connection signal="toggled" from="mode_speedrun/speedrun_button" to="." method="_on_check_button_toggled"]

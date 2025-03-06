@@ -1,8 +1,8 @@
 extends CharacterBody2D
 class_name script_player
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+var SPEED = 300.0
+var JUMP_VELOCITY = -400.0
 
 var nouv = false
 var can_jump = false
@@ -89,19 +89,30 @@ func animate():
 					animated_sprite_2d.play("idle_sylvan_bambou")
 				if velocity:
 					animated_sprite_2d.play("run_sylvan_bambou")
+					
+	if GameManager.skin_player == 4:
+		animation_player.play("skin_meven")
+		JUMP_VELOCITY = -420.0
+		SPEED = 400.0
+		if GameManager.paused == false and GameManager.menue_victoire == false:
+			if !velocity:
+				animated_sprite_2d.play("idle_meven")
+			if velocity:
+				animated_sprite_2d.play("run_meven")
 
-var arret = false
+var arret: Array = []
 
 #arret animation nouv skin
 func arret_animation():
-	arret = true
+	arret.append("marteau")
 	GlobaleUpside.debloquage_marteau_animation = false
 
 # debloquage skin ou marteau
 func debloquage():
-	if arret == false:
+	if arret.has("skin"):
 		if GameManager.mort == 20:
 			nouv_player.play("debloquage_skin")
+			arret.append("skin")
 	if GlobaleUpside.debloquage_marteau_animation == true:
 		nouv_player.play("debloquage_marteau")
 
@@ -124,12 +135,16 @@ func mort():
 	GameManager.platforme = 3
 	GameManager.mort += 1 
 	GameManager.player_mort = false
+	if GameManager.mort == 20:
+		GameManager.skin_debloquer.append(2)
+		debloquage()
 	son_mort.play()
 	await get_tree().create_timer(1).timeout
 	son_mort.stop()
 
 var zoom_effectué = false
 var gros_zoom = false
+
 func capacite():
 	if GameManager.skin_player == 3:
 		if Input.is_action_just_pressed("capacité") and gros_zoom == false:
@@ -166,8 +181,6 @@ func succes():
 	if Succes.nouv_succes == true:
 		nouv_player.play("debloquage_succes")
 		Succes.nouv_succes = false
-
-
 
 #truc celest
 func _on_jump_timer_timeout() -> void:

@@ -20,12 +20,11 @@ var menue_victoire = false
 var mode_capacite = false
 
 
-#1 = player de base 2 = player nerd 3 = sylvan tp
+#1 = player de base 2 = player nerd 3 = sylvan tp 4 = meven
 var skin_player = 1
 
 #player débloqué
-var skin_nerd_debloque = false
-var skin_debloquer: Array = [1]
+var skin_debloquer: Array = [1, 2, 3, 4]
 
 #capacité tp position
 var tp_position = 0
@@ -50,24 +49,15 @@ var nouv_skin_animation = false
 #niv bonus débloqué
 var niv_bonus_1_debloque = false
 
+var test
 func _ready() -> void:
-	pass
+	if skin_debloquer.has(2):
+		print("nop")
+	
 
 
 func _process(_delta: float) -> void:
-	#débloqué skin nerd
-	if mort >= 20:
-		skin_nerd_debloque = true
-		nouv_skin = true
-	
-	#limite skin du joueur
-	if skin_player == 0:
-		skin_player = 1
-	if skin_player == 2 and skin_nerd_debloque == false:
-		skin_player = 1
-	if skin_player == 4:
-		skin_player = 3
-
+	pass
 
 func debloque(debloque_niv):
 	if debloque_niv == 1.1:
