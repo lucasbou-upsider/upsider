@@ -4,7 +4,7 @@ var time = GameManager.timer_speedrun
 
 func _process(delta: float) -> void:
 	if GameManager.mode_speedrun == true:
-		time = float(time) + delta
+		time = float(time) + delta / 60
 	
 		update_ui()
 

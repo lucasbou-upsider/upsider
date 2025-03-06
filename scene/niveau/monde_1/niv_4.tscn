@@ -1578,7 +1578,7 @@ position = Vector2(461, 254)
 position = Vector2(-630, -148)
 
 [node name="pique2" parent="piege" instance=ExtResource("5_17wr1")]
-position = Vector2(216, 610)
+position = Vector2(216, 612)
 
 [node name="ennemie" type="Node2D" parent="."]
 
