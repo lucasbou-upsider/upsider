@@ -2,13 +2,14 @@ extends Node
 
 #nombre de platforme restant
 var platforme = 3
+var max_platforme = 3
 #nombre de piece
 var piece = 0
 #nombre de piece déposé dans la boite
 var piece_depose = 0
 var piece_bonus_depose = 0
 #compteur de mort
-var mort = 0
+var mort := 0
 var mort_vero = 0
 #pause
 var paused = false
@@ -24,7 +25,7 @@ var mode_capacite = false
 var skin_player = 1
 
 #player débloqué
-var skin_debloquer: Array = [1, 2, 3, 4]
+var skin_debloquer: Array = [1]
 
 #capacité tp position
 var tp_position = 0
@@ -45,16 +46,15 @@ var player_mort = false
 var nouv_skin = false
 var nouv_skin_animation = false
 
+#tremblement d'écran
+var camera_shake = false
 
 #niv bonus débloqué
 var niv_bonus_1_debloque = false
 
-var test
 func _ready() -> void:
 	if skin_debloquer.has(2):
 		print("nop")
-	
-
 
 func _process(_delta: float) -> void:
 	pass

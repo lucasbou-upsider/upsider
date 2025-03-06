@@ -38,4 +38,5 @@ func mort():
 	GameManager.mort_vero += 1
 	if GameManager.mort_vero == 1:
 		Succes.debloquage_succes(2)
+		Succes.nouv_succes = true
 	queue_free()

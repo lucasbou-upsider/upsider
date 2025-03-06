@@ -7,7 +7,7 @@ var instance_point_tp = preload("res://scene/objets/capacite_tp.tscn")
 
 @onready var particule_caisse: CPUParticles2D = $player/particule_caisse
 @onready var menue_victoire: Control = $player/victoire
-@onready var pause_menu: Control = $player/pause_menu
+@onready var pause_menu: CanvasLayer = $player/pause_menu
 @export var niv = 0.0
 @export var piece_requis = 0
 @onready var spawn: Marker2D = $spawn
@@ -22,7 +22,10 @@ var tp_utilise = false
 #reset
 func _ready() -> void:
 	music()
-	GameManager.platforme = 3
+	if GameManager.skin_player != 4:
+		GameManager.platforme = GameManager.max_platforme
+	else:
+		GameManager.platforme = 2
 	GameManager.piece = 0
 	GameManager.piece_depose = 0
 	GameManager.derniere_piece = spawn.position

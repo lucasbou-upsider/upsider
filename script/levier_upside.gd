@@ -40,6 +40,7 @@ func _process(_delta: float) -> void:
 		cpu_particles_2d.speed_scale = 0.5
 
 func activation():
+	GameManager.camera_shake = true
 	animated_sprite_2d.play("activation")
 	GlobaleUpside.activation(nbr_levier)
 	GlobaleUpside.levier_actif += 1

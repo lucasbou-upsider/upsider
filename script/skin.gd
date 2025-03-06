@@ -3,6 +3,7 @@ extends AnimatedSprite2D
 @onready var description_skin: Label = $"../description_skin"
 @onready var etoile_skin: AnimatedSprite2D = $"../étoile_skin"
 @onready var menu_2: Control = $"../.."
+@onready var box_container: BoxContainer = $"../BoxContainer"
 
 
 var marche = true
@@ -12,6 +13,11 @@ var player2 = false
 var player3 = false
 
 func _ready() -> void:
+	if GameManager.skin_debloquer.size() == 1:
+		box_container.visible = false
+		description_skin.visible = false
+	
+	
 	if GameManager.skin_debloquer.has(2):
 		player2 = true
 	if GameManager.skin_debloquer.has(3):

@@ -35,11 +35,13 @@ extends Control
 @onready var etoile_8: AnimatedSprite2D = $"menu_1/monde 2/BoxContainer/niv8/étoile_8"
 @onready var etoile_9: AnimatedSprite2D = $"menu_1/monde 2/BoxContainer/niv9/étoile_9"
 
+@onready var tuto: Control = $tuto
 
 
 func _ready() -> void:
 	MusicController.play_music("menu")#lance la musique
-
+	if GameManager.mort == 0:
+		mort.visible = false
 	#mode admin
 	if mode_admin == true:
 		var mode_admine_niv_debloque: Array = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 1.1]
@@ -52,6 +54,8 @@ func _ready() -> void:
 		speedrun_button.disabled = true
 	else:
 		niv_2.visible = false
+		tuto.visible = true
+		
 
 	if GameManager.niv_fini.has(2.0) == true:
 		etoile_2.visible = true

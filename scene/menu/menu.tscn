@@ -1,8 +1,9 @@
-[gd_scene load_steps=83 format=4 uid="uid://xtbwi03r2nj0"]
+[gd_scene load_steps=84 format=4 uid="uid://xtbwi03r2nj0"]
 
 [ext_resource type="Script" uid="uid://ckyd3pml2unld" path="res://script/menu/menu.gd" id="1_spie2"]
 [ext_resource type="Texture2D" uid="uid://caw430pts8h8p" path="res://sprite/Paper-Pixels-8x8/Tiles.png" id="2_mbnkx"]
 [ext_resource type="PackedScene" uid="uid://qdnj4dtpxum2" path="res://scene/upside/upside.tscn" id="3_r1cnn"]
+[ext_resource type="Texture2D" uid="uid://bxqwxsryem6me" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="4_aou5u"]
 [ext_resource type="FontFile" uid="uid://c6drrdopvgm8h" path="res://BabaMediumPixels.ttf" id="4_xwok8"]
 [ext_resource type="Texture2D" uid="uid://reu5pqm2tqhj" path="res://sprite/Paper-Pixels-8x8/etoile.png" id="5_l11v4"]
 [ext_resource type="Script" uid="uid://bppaapt00u4i" path="res://script/button.gd" id="6_c27m6"]
@@ -3554,24 +3555,16 @@ metadata/_edit_lock_ = true
 position = Vector2(1103, 233)
 type_upside = "menu"
 
-[node name="BoxContainer" type="BoxContainer" parent="."]
-layout_mode = 0
-offset_left = 200.0
-offset_top = 518.0
-offset_right = 282.0
-offset_bottom = 558.0
-theme_override_constants/separation = 40
-script = ExtResource("6_c27m6")
+[node name="tuto" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Button" type="Button" parent="BoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_xwok8")
-text = "<"
-
-[node name="Button2" type="Button" parent="BoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_xwok8")
-text = ">"
+[node name="PointLight2D" type="PointLight2D" parent="tuto"]
+position = Vector2(138, 85)
+energy = 0.3
+texture = ExtResource("4_aou5u")
 
 [node name="menu_1" type="Control" parent="."]
 anchors_preset = 0
@@ -3894,6 +3887,25 @@ text_direction = 3
 position = Vector2(-301.5, 26.5)
 shape = SubResource("RectangleShape2D_pd8h1")
 
+[node name="BoxContainer" type="BoxContainer" parent="skin_player"]
+layout_mode = 0
+offset_left = -365.0
+offset_top = 7.0
+offset_right = -283.0
+offset_bottom = 47.0
+theme_override_constants/separation = 40
+script = ExtResource("6_c27m6")
+
+[node name="Button" type="Button" parent="skin_player/BoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_xwok8")
+text = "<"
+
+[node name="Button2" type="Button" parent="skin_player/BoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_xwok8")
+text = ">"
+
 [node name="mode_speedrun" type="Control" parent="."]
 anchors_preset = 0
 offset_left = -2.0
@@ -3920,8 +3932,6 @@ text = "mode speedrun"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_3s2x0")
 
-[connection signal="pressed" from="BoxContainer/Button" to="skin_player/skin" method="_on_button_pressed"]
-[connection signal="pressed" from="BoxContainer/Button2" to="skin_player/skin" method="_on_button_2_pressed"]
 [connection signal="pressed" from="menu_1/option/BoxContainer/quit2" to="." method="_on_quit_2_pressed"]
 [connection signal="button_down" from="menu_1/option/BoxContainer2/quit" to="." method="_on_quit_button_down"]
 [connection signal="pressed" from="menu_1/option/BoxContainer3/Button_succes" to="." method="_on_button_succes_pressed"]
@@ -3936,4 +3946,6 @@ stream = ExtResource("11_3s2x0")
 [connection signal="pressed" from="menu_1/monde 2/BoxContainer/niv8" to="." method="_on_niv_8_pressed"]
 [connection signal="pressed" from="menu_1/monde 2/BoxContainer/niv9" to="." method="_on_niv_9_pressed"]
 [connection signal="area_entered" from="skin_player/arret_annimation" to="skin_player/skin" method="_on_arret_annimation_area_entered"]
+[connection signal="pressed" from="skin_player/BoxContainer/Button" to="skin_player/skin" method="_on_button_pressed"]
+[connection signal="pressed" from="skin_player/BoxContainer/Button2" to="skin_player/skin" method="_on_button_2_pressed"]
 [connection signal="toggled" from="mode_speedrun/speedrun_button" to="." method="_on_check_button_toggled"]

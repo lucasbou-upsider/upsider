@@ -1,5 +1,6 @@
-extends Control
+extends CanvasLayer
 
+@onready var mort: Label = $mort
 @onready var confirmation: Control = $confirmation
 var menu_confirmation = false
 
@@ -15,6 +16,8 @@ func _process(_delta: float) -> void:
 		confirmation.visible = false
 	if menu_confirmation == true:
 		confirmation.visible = true
+		
+	mort.text = "nombre de mort : " + str(GameManager.mort)
 
 
 func _on_menu_pressed() -> void:

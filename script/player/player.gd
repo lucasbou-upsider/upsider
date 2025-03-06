@@ -92,7 +92,8 @@ func animate():
 					
 	if GameManager.skin_player == 4:
 		animation_player.play("skin_meven")
-		JUMP_VELOCITY = -420.0
+		GameManager.max_platforme = 2
+		JUMP_VELOCITY = -450.0
 		SPEED = 400.0
 		if GameManager.paused == false and GameManager.menue_victoire == false:
 			if !velocity:
@@ -109,7 +110,7 @@ func arret_animation():
 
 # debloquage skin ou marteau
 func debloquage():
-	if arret.has("skin"):
+	if !arret.has("skin"):
 		if GameManager.mort == 20:
 			nouv_player.play("debloquage_skin")
 			arret.append("skin")
@@ -132,11 +133,14 @@ func mort():
 #	add_child(crane_inst)
 	particule_mort.emitting = true
 	position = GameManager.derniere_piece
-	GameManager.platforme = 3
+	GameManager.platforme = GameManager.max_platforme
 	GameManager.mort += 1 
 	GameManager.player_mort = false
 	if GameManager.mort == 20:
 		GameManager.skin_debloquer.append(2)
+		print("20 mort")
+		#Succes.debloquage_succes(4)
+		#succes()
 		debloquage()
 	son_mort.play()
 	await get_tree().create_timer(1).timeout

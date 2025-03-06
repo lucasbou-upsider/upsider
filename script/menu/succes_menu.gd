@@ -7,9 +7,9 @@ extends Control
 func _ready() -> void:
 	MusicController.play_music("menu")
 
-	if Succes.succes_1 == true:
+	if Succes.succes_fini.has(1) == true:
 		color_rect_1.visible = false
-	if Succes.succes_2 == true:
+	if Succes.succes_fini.has(2) == true:
 		color_rect_2.visible = false
 
 func _process(delta: float) -> void:
