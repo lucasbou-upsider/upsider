@@ -92,7 +92,7 @@ func _ready() -> void:
 		etoile_7.play("recus")
 		if GameManager.mode_speedrun == true:
 			temps_speedrun_monde_1.text = str(GameManager.temps_monde_1)
-			if int(GameManager.temps_monde_1) >= 7.5:
+			if int(GameManager.temps_monde_1) <= 7.5:
 				GameManager.skin_debloquer.append(4)
 		else:
 			temps_speedrun_monde_1.visible = false
